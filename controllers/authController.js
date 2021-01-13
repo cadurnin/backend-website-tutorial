@@ -56,7 +56,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 
     const url = `${req.protocol}://${req.get('host')}/activate/${activationToken}`;
 
-    console.log(url);
+    //console.log(url);
 
     await new Email(newUser, url).sendWelcome();
 
@@ -109,13 +109,13 @@ exports.login = catchAsync(async (req, res, next) => {
 
     // check 
 
-    console.log(user);
+    //.log(user);
 
     createSendToken(user, 200, res);
 });
 
 exports.isLoggedIn = async (req, res, next) => {
-    console.log(req.cookies.jwt)
+    //console.log(req.cookies.jwt)
     if(req.cookies.jwt) {
     try {
     
@@ -237,11 +237,11 @@ return next(new AppError('There was an error sending the email, Try again later'
 
 exports.resetPassword = catchAsync( async (req, res, next) => {
     const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
-    console.log(hashedToken);
+    //console.log(hashedToken);
 
     const user = await User.findOne({passwordResetToken: hashedToken, passwordResetExpires: { $gt: Date.now()}});
 
-    console.log(user)
+    //console.log(user)
 
     if(!user) {
         return next( new AppError('Token is invalid or has expired', 400))
@@ -272,7 +272,7 @@ exports.updatePassword = catchAsync(async(req, res, next) => {
     // Check if the posted password is correct
 
     // if correct, update the password 
-    console.log('Updated password');
+    //console.log('Updated password');
     // Log user in, send JW  
     createSendToken(user, 201, res);
 
@@ -281,7 +281,7 @@ exports.updatePassword = catchAsync(async(req, res, next) => {
 //Only for rendered pages, no errors.
 
 exports.checkForBooking = catchAsync(async (req, res, next) => {
-    console.log('looking....')
+    //console.log('looking....')
     const bookings = await Booking.find({
     user: req.user.id
 })

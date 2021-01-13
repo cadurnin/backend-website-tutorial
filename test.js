@@ -135,4 +135,4 @@ let change = {
 
 testObj[index] = Object.assign(testObj[index], change);
 
-console.log(testObj);
+//console.log(testObj);

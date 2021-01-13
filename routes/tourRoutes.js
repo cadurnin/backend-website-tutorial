@@ -16,7 +16,7 @@ router
   .get(authController.protect, authController.restrictTo('admin', 'lead-guide', 'guide'), tourController.getMonthlyPlan);
 
 router.param('id', (req, res, next, val) => {
-  console.log(`Tour id is: ${val}`);
+  //.log(`Tour id is: ${val}`);
   next();
 });
 

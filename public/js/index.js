@@ -31,7 +31,7 @@ if (mapBox) {
 if(loginForm) {
     loginForm.addEventListener('submit', e => {
         e.preventDefault();
-        console.log('logging in');
+        //console.log('logging in');
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         login(email, password);
@@ -49,7 +49,7 @@ if(userInfo) {
         form.append('name', document.getElementById('name').value);
         form.append('email', document.getElementById('email').value);
         form.append('photo', document.getElementById('photo').files[0]);
-        console.log('This is the form');
+        //console.log('This is the form');
         updateSettings(form, 'data');
     })
 };
@@ -80,7 +80,7 @@ if(bookBtn) {
 }
 
 if(signUpForm) {
-    console.log('this works');
+    //console.log('this works');
 
     signUpForm.addEventListener('submit', e => {
         e.preventDefault();
@@ -99,7 +99,7 @@ if(reviewBtn) {
         const tourId = e.target.dataset.tourId;
         const tourUser = e.target.dataset.tourUser;
 
-        console.log(tourId, tourUser);
+        //console.log(tourId, tourUser);
 
         checkBooking(tourUser, tourId);
         

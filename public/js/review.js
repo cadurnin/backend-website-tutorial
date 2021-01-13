@@ -3,7 +3,7 @@ import axios from 'axios';
 import{ showAlert} from './alerts';
 
 export const checkBooking = async (userId, tourId) => {
-    console.log('This is running in the function');
+    //console.log('This is running in the function');
     try {
         const res = await axios({
             method:'GET',

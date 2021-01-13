@@ -65,7 +65,7 @@ bookingSchema.statics.calcTotalBookings = async function(tourId) {
 
 bookingSchema.post('save', function(doc, next) {
      this.constructor.calcTotalBookings(doc.tour)
-    console.log('Complete');
+    //console.log('Complete');
     next()
 })
 
